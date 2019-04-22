@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Cupcakes</h1>
+    <form>
+            <input id="flavor" placeholder="Flavor" type="text" name="flavor" required>
+            <input id="size" placeholder="Size" type="text" name="size" required>
+            <input id="rating" placeholder="Rating" type="number" name="rating" required>
+            <input id="image" placeholder="Image URL" type="url" name="image">
+            <button class="btn btn-info" type="button">Add New Cupcake</button>
+        </form>
+    <ul>
+    {% for cupcake in cupcakes %}
+        <div>
+            <img class="img-fluid img-thumbnail cupcake" src="{{cupcake.image}}">
+            <li>flavor: {{cupcake.flavor}} Size: {{cupcake.size}} Rated: {{cupcake.rating}}</li>
+        </div>
+        <hr>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
